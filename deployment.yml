@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: express-server-deployment
+        labels:
+                app: express-server
+spec:
+        replicas: 1
+        selector:
+                matchLabels:
+                        app: express-server
+        template:
+                metadata:
+                        labels:
+                                app: express-server
+                spec:
+                        containers:
+                        - name: express-serv
+                          image: tuzelbekovnurbek/express-server:v1.0.0
+                          ports:
+                          - containerPort: 3001

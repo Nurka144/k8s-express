@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+ back:
+  container_name: express-server
+  image: express-server:v1.0.0
+  ports:
+   - "3001:3001"
+  volumes:
+   - express-server-data:/app
+  networks:
+   - express-server-net-bridge
+
+networks:
+ express-server-net-bridge:
+   driver: bridge
+
+volumes:
+ express-server-data:
